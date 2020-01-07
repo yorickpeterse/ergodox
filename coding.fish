@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-cd qmk_firmware
 make ergodox_ez:coding
 
 echo 'Reset the Ergodox now'
