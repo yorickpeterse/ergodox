@@ -38,13 +38,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LALT,                                                                                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,
                                                                                                     KC_LGUI,        KC_TRANSPARENT, LALT(LCTL(KC_DELETE)),RESET,
                                                                                                                     KC_AUDIO_VOL_UP,KC_PGUP,
-                                                                                    KC_SPACE,       KC_ENTER,       KC_AUDIO_VOL_DOWN,KC_PGDOWN,      KC_TRANSPARENT, MO(1)
+                                                                                    KC_SPACE,       KC_ENTER,       KC_AUDIO_VOL_DOWN,KC_PGDOWN,      OSL(2),         MO(1)
   ),
   [1] = LAYOUT_ergodox_pretty(
+    KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_BSLASH,      KC_UNDS,        KC_QUOTE,       KC_LABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RABK,        KC_DQUO,        KC_EQUAL,       KC_QUES,        KC_COLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_LCBR,        KC_LBRACKET,    KC_SLASH,                                                                       KC_MINUS,       KC_RBRACKET,    KC_RCBR,        KC_RPRN,        KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CIRC,        KC_PIPE,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_PLUS,        KC_ASTR,        KC_AMPR,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
+                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+  ),
+  [2] = LAYOUT_ergodox_pretty(
+    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_BSLASH,      KC_UNDS,        KC_QUOTE,       KC_LABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RABK,        KC_DQUO,        KC_EQUAL,       KC_QUES,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_LCBR,        KC_LBRACKET,    KC_CIRC,                                                                        KC_AMPR,        KC_RBRACKET,    KC_RCBR,        KC_RPRN,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_SLASH,       KC_PIPE,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_PLUS,        KC_MINUS,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
@@ -53,19 +63,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  }
   return true;
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
-  ergodox_board_led_off();
-  ergodox_right_led_1_off();
-  ergodox_right_led_2_off();
-  ergodox_right_led_3_off();
+    uint8_t layer = biton32(state);
 
-  // Layer LEDs are distracting, so they have been disabled.
+    ergodox_board_led_off();
+    ergodox_right_led_1_off();
+    ergodox_right_led_2_off();
+    ergodox_right_led_3_off();
 
-  return state;
+    // Layer LEDs are distracting, so they have been disabled for all but the
+    // mouse layer.
+    switch (layer) {
+        case 2:
+            ergodox_right_led_2_on();
+            break;
+        default:
+            break;
+    }
+
+    return state;
 }
