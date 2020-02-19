@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           KC_GRAVE,                                       KC_TILD,        KC_J,           KC_L,           KC_U,           KC_Y,           KC_SCOLON,      KC_DELETE,
     KC_LCTRL,       KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                           KC_K,           KC_N,           KC_E,           KC_I,           KC_O,           KC_BSPACE,
     KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_TRANSPARENT,                                 KC_RALT,        KC_M,           KC_H,           KC_COMMA,       KC_DOT,         KC_UP,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LALT,                                                                                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,
+    KC_F17,         KC_F18,         KC_F19,         KC_F20,         KC_LALT,                                                                                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,
                                                                                                     KC_LGUI,        KC_TRANSPARENT, LALT(LCTL(KC_DELETE)),RESET,
                                                                                                                     KC_AUDIO_VOL_UP,KC_PGUP,
                                                                                     KC_SPACE,       KC_ENTER,       KC_AUDIO_VOL_DOWN,KC_PGDOWN,      OSL(2),         MO(1)
@@ -62,10 +62,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-
+// The state of the F20 key, used to toggle the red LED.
+static uint8_t F20_PRESSED = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  return true;
+    if(keycode == KC_F20) {
+        if(record->event.pressed) {
+            // We only run this when the key is pressed, otherwise releasing the
+            // key would immediately turn the LED off again.
+            if(F20_PRESSED == 0) {
+                ergodox_right_led_1_on();
+            } else {
+                ergodox_right_led_1_off();
+            }
+
+            F20_PRESSED = !F20_PRESSED;
+        }
+    }
+
+    return true;
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
@@ -76,14 +91,10 @@ uint32_t layer_state_set_user(uint32_t state) {
     ergodox_right_led_2_off();
     ergodox_right_led_3_off();
 
-    // Layer LEDs are distracting, so they have been disabled for all but the
-    // mouse layer.
-    switch (layer) {
-        case 2:
-            ergodox_right_led_2_on();
-            break;
-        default:
-            break;
+    // Layer LEDs are distracting, so they have been disabled for all but layer
+    // two.
+    if(layer == 2) {
+        ergodox_right_led_2_on();
     }
 
     return state;
