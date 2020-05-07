@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_UNDS,        KC_QUOTE,       KC_DQUO,        KC_BSLASH,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_PLUS,        KC_EQUAL,       KC_QUES,        KC_COLN,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_AMPR,        KC_UNDS,        KC_QUOTE,       KC_DQUO,        KC_BSLASH,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_PLUS,        KC_EQUAL,       KC_QUES,        KC_COLN,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_LABK,        KC_LPRN,        KC_LCBR,        KC_LBRACKET,    KC_SLASH,                                                                       KC_TRANSPARENT, KC_RBRACKET,    KC_RCBR,        KC_RPRN,        KC_RABK,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_GRAVE,       KC_ASTR,        KC_CIRC,        KC_PIPE,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_MINUS,       KC_COMMA,       KC_DOT,         KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
