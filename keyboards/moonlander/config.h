@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0x3297
 #define PRODUCT_ID      0x1969
 #define MANUFACTURER    ZSA
-#define PRODUCT         Moonlander
+#define PRODUCT         Moonlander Mark I
 #define DESCRIPTION     A keyboard
 #define DEVICE_VER      0x0001
 #define WEBUSB_LANDING_PAGE_URL u8"configure.ergodox-ez.com"
@@ -47,6 +47,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MCP23_LED_B GPA7
 
 #define EEPROM_I2C_24LC128
+#define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR (1638-1)
 
 // Not needed, is default address:
 // #define EXTERNAL_EEPROM_I2C_BASE_ADDRESS 0b10100000
@@ -105,11 +106,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TOGGLE 1
 
-#define MOUSEKEY_INTERVAL 20
-#define MOUSEKEY_DELAY 0
-#define MOUSEKEY_TIME_TO_MAX 60
-#define MOUSEKEY_MAX_SPEED 7
-#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_INTERVAL           20
+#define MOUSEKEY_DELAY              0
+#define MOUSEKEY_TIME_TO_MAX        60
+#define MOUSEKEY_MAX_SPEED          7
+#define MOUSEKEY_WHEEL_DELAY        MOUSEKEY_DELAY
+#define MOUSEKEY_WHEEL_INTERVAL     MOUSEKEY_INTERVAL
+#define MOUSEKEY_WHEEL_MAX_SPEED    MOUSEKEY_MAX_SPEED
+#define MOUSEKEY_WHEEL_TIME_TO_MAX  MOUSEKEY_TIME_TO_MAX
 
 #define MUSIC_MAP
 
