@@ -4,6 +4,7 @@ You can compile a keymap already in the repo or using a QMK Configurator export.
 A bootloader must be specified.
 """
 import subprocess
+from argparse import FileType
 
 from milc import cli
 
