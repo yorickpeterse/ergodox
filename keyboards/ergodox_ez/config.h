@@ -1,6 +1,8 @@
 /*
 Copyright 2012 Jun Wako <wakojun@gmail.com>
 Copyright 2013 Oleg Kostyuk <cub.uanic@gmail.com>
+Copyright 2015 ZSA Technology Labs Inc (@zsa)
+Copyright 2020 Christopher Courtney <drashna@live.com> (@drashna)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,12 +20,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifndef ERGODOX_EZ_CONFIG_H
 #define ERGODOX_EZ_CONFIG_H
+#endif
 
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x1307
+#define VENDOR_ID       0x3297
+#define PRODUCT_ID      0x4974
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    ZSA
 #define PRODUCT         Ergodox EZ
@@ -51,11 +54,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM    200
 #define IGNORE_MOD_TAP_INTERRUPT // this makes it possible to do rolling combos (zx) with keys that convert to other keys on hold (z becomes ctrl when you hold it, and when this option isn't enabled, z rapidly followed by x actually sends Ctrl-x. That's bad.)
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
 #define IS_COMMAND() ( \
@@ -149,8 +147,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_LAYER
 //#define NO_ACTION_TAPPING
 //#define NO_ACTION_ONESHOT
-//#define NO_ACTION_MACRO
-//#define NO_ACTION_FUNCTION
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
 //#define DEBUG_MATRIX_SCAN_RATE
-
-#endif
