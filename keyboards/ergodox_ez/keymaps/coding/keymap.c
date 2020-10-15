@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-// The state of the caps key, used to toggle the red LED.
+// The state of the caps key, used to toggle the blue LED.
 static uint8_t CAPS_PRESSED = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
