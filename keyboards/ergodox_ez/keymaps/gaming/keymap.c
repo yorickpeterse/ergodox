@@ -33,90 +33,62 @@
 #define LSA_T(kc) MT(MOD_LSFT | MOD_LALT, kc)
 #define BP_NDSH_MAC ALGR(KC_8)
 
+#define ______________ KC_TRANSPARENT
+
 enum custom_keycodes {
   RGB_SLD = EZ_SAFE_RANGE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_LGUI,                                        KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_END,
-    KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_J,           KC_L,           KC_U,           KC_Y,           KC_V,           KC_DELETE,
-    KC_LCTRL,       KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                           KC_K,           KC_N,           KC_E,           KC_I,           KC_O,           KC_BSPACE,
-    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_LALT,        KC_TRANSPARENT,                                 KC_RALT,        MO(1),          KC_M,           KC_H,           KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPSLOCK,
-    KC_F11,         KC_F12,         KC_F13,         KC_F14,         MO(3),                                                                                                          KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_PGUP,
-                                                                                    KC_SPACE,       KC_TRANSPARENT, RESET,          KC_PGDOWN,      KC_TRANSPARENT, KC_ENTER
+    KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           ______________,                                 ______________, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_END,
+    KC_TAB,         KC_Q,           KC_W,           KC_F,           KC_P,           KC_B,           ______________,                                 ______________, KC_J,           KC_L,           KC_U,           KC_Y,           KC_DELETE,      ______________,
+    KC_LCTRL,       KC_A,           KC_R,           KC_S,           KC_T,           KC_G,                                                                           KC_K,           KC_N,           KC_E,           KC_I,           KC_O,           ______________,
+    KC_LSHIFT,      KC_Z,           KC_X,           KC_C,           KC_D,           KC_V,           KC_LALT,                                        KC_RALT,        KC_M,           KC_H,           KC_COMMA,       KC_DOT,         KC_BSPACE,      ______________,
+    KC_F11,         KC_F12,         KC_F13,         KC_F14,         MO(2),                                                                                                          MO(1),          KC_F15,         KC_F16,         KC_F17,         KC_F18,
+                                                                                                    ______________, ______________, ______________, ______________,
+                                                                                                                    ______________, ______________,
+                                                                                    KC_SPACE,       ______________, ______________, ______________, ______________, KC_ENTER
   ),
   [1] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_EXLM,        KC_QUES,        KC_LBRACKET,    KC_RBRACKET,    KC_BSLASH,      KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_COLN,        KC_PLUS,        KC_EQUAL,       KC_ASTR,        KC_AMPR,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_PIPE,        KC_AT,          KC_LCBR,        KC_RCBR,        KC_SLASH,                                                                       KC_SCOLON,      KC_UNDS,        KC_QUOTE,       KC_DQUO,        KC_GRAVE,       KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_HASH,        KC_LPRN,        KC_RPRN,        MO(2),          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_MINUS,       KC_COMMA,       KC_DOT,         KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    ______________, ______________, ______________, ______________, ______________, ______________, ______________,                                 ______________, ______________, ______________, ______________, ______________, ______________, ______________,
+    ______________, KC_EXLM,        KC_QUES,        KC_LPRN,        KC_RPRN,        KC_LABK,        ______________,                                 ______________, KC_RABK,        KC_MINUS,       KC_EQUAL,       KC_PLUS,        KC_ASTR,        ______________,
+    ______________, KC_PIPE,        KC_AT,          KC_LCBR,        KC_RCBR,        KC_SLASH,                                                                       KC_SCOLON,      KC_UNDS,        KC_QUOTE,       KC_DQUO,        KC_GRAVE,       ______________,
+    ______________, KC_CIRC,        KC_HASH,        KC_LBRC,        KC_RBRC,        KC_BSLASH,      ______________,                                 ______________, KC_COLN,        KC_AMPR,        KC_PERC,        KC_TILD,        KC_DLR,         ______________,
+    ______________, ______________, ______________, ______________, ______________,                                                                                                 ______________, ______________, ______________, ______________, ______________,
+                                                                                                    ______________, ______________, ______________, ______________,
+                                                                                                                    ______________, ______________,
+                                                                                    ______________, ______________, ______________, ______________, ______________, ______________
   ),
   [2] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LABK,        KC_RABK,        KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_CIRC,        KC_DLR,         KC_PERC,        KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
-  [3] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_UP,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
+    ______________, ______________, ______________, ______________, ______________, ______________, ______________,                                 ______________, ______________, ______________, ______________, ______________, ______________, ______________,
+    ______________, ______________, KC_UP,          ______________, ______________, ______________, ______________,                                 ______________, ______________, ______________, ______________, ______________, ______________, ______________,
+    ______________, KC_LEFT,        KC_DOWN,        KC_RIGHT,       ______________, ______________,                                                                 ______________, ______________, ______________, ______________, ______________, ______________,
+    ______________, ______________, ______________, ______________, ______________, ______________, ______________,                                 ______________, ______________, ______________, ______________, ______________, ______________, ______________,
+    ______________, ______________, ______________, ______________, ______________,                                                                                                 ______________, ______________, ______________, ______________, ______________,
+                                                                                                    ______________, ______________, ______________, ______________,
+                                                                                                                    ______________, ______________,
+                                                                                    ______________, ______________, ______________, ______________, ______________, ______________
+  )
 };
 
-
-// The state of the F14 key, used to toggle the red LED.
-static uint8_t F14_PRESSED = 0;
 
 // The state of the caps key, used to toggle the blue LED.
 static uint8_t CAPS_PRESSED = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
-        case KC_F14:
-            if(record->event.pressed) {
-                // We only run this when the key is pressed, otherwise releasing the
-                // key would immediately turn the LED off again.
-                if(F14_PRESSED == 0) {
-                    ergodox_right_led_1_on();
-                } else {
-                    ergodox_right_led_1_off();
-                }
-
-                F14_PRESSED = !F14_PRESSED;
+    if(keycode == KC_CAPSLOCK) {
+        if(record->event.pressed) {
+            // We only run this when the key is pressed, otherwise releasing the
+            // key would immediately turn the LED off again.
+            if(CAPS_PRESSED == 0) {
+                ergodox_right_led_3_on();
+            } else {
+                ergodox_right_led_3_off();
             }
-            break;
-        case KC_CAPSLOCK:
-            if(record->event.pressed) {
-                // We only run this when the key is pressed, otherwise releasing the
-                // key would immediately turn the LED off again.
-                if(CAPS_PRESSED == 0) {
-                    ergodox_right_led_3_on();
-                } else {
-                    ergodox_right_led_3_off();
-                }
 
-                CAPS_PRESSED = !CAPS_PRESSED;
-            }
-            break;
-        default:
-            break;
+            CAPS_PRESSED = !CAPS_PRESSED;
+        }
     }
 
     return true;
@@ -128,15 +100,18 @@ uint32_t layer_state_set_user(uint32_t state) {
     ergodox_board_led_off();
     ergodox_right_led_1_off();
     ergodox_right_led_2_off();
-    ergodox_right_led_2_off();
 
     switch (layer) {
         case 3:
-            ergodox_right_led_2_on();
+            ergodox_right_led_1_on();
             break;
         default:
             break;
     }
 
     return state;
+}
+
+void matrix_init_user(void) {
+    ergodox_led_all_set(LED_BRIGHTNESS_LO);
 }
